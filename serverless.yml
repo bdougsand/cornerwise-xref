@@ -1,0 +1,21 @@
+service: cornerwise-xref
+
+provider:
+  name: aws
+  runtime: python3.6
+  timeout: 60
+  profile: cornerwise
+
+functions:
+  cambridgema:
+    handler: cambridgema.getref
+    events:
+      - http:
+          path: cambridgema
+          method: get
+  somervillema:
+    handler: somervillema.getref
+    events:
+      - http:
+          path: somervillema
+          method: get
